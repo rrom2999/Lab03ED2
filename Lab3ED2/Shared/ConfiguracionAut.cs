@@ -12,7 +12,7 @@ namespace Lab3ED2.Shared
 {
     public static class ConfiguracionAut
     {
-        public static string GenerarJWT(string Llave)
+        public static string GenerarJWT(string Llave, string Name, string ID)
         { 
 
             var llaveDeSeguridad = new SymmetricSecurityKey(Encoding.Default.GetBytes(Llave));
@@ -20,8 +20,8 @@ namespace Lab3ED2.Shared
 
             var claims = new Claim[]
             {
-                new Claim("Username", "Admin"),
-                new Claim("Role", "1"),
+                new Claim("Nombre", Name),
+                new Claim("ID", ID),
             };
             
             var tokenGenerado = new JwtSecurityToken(issuer: "null", audience: "null", claims: claims, notBefore: DateTime.Now, expires: DateTime.Now.AddMinutes(20), credenciales);
