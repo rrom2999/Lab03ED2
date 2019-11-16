@@ -13,18 +13,18 @@ namespace Lab3ED2.Controllers
     public class AutenticacionController : ControllerBase
     {
         // GET: api/Autenticacion
-        [HttpGet]
-        public string Get()
+        [HttpGet("{Llave}")]
+        public string Get( string Llave)
         {
-            return ConfiguracionAut.GenerarJWT();
+            return ConfiguracionAut.GenerarJWT(Llave);
         }
 
         // GET: api/Autenticacion/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //[HttpGet("{id}", Name = "Get")]
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
         // POST: api/Autenticacion
         [HttpPost]

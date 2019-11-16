@@ -12,9 +12,10 @@ namespace Lab3ED2.Shared
 {
     public static class ConfiguracionAut
     {
-        public static string GenerarJWT()
-        {
-            var llaveDeSeguridad = new SymmetricSecurityKey(Encoding.Default.GetBytes("LlaveLlaveLlaveLlave"));
+        public static string GenerarJWT(string Llave)
+        { 
+
+            var llaveDeSeguridad = new SymmetricSecurityKey(Encoding.Default.GetBytes(Llave));
             var credenciales = new SigningCredentials(llaveDeSeguridad, SecurityAlgorithms.HmacSha256);
 
             var claims = new Claim[]
